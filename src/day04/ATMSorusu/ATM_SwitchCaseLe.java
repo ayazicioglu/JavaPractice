@@ -1,4 +1,4 @@
-package day04;
+package day04.ATMSorusu;
 
 import java.util.Scanner;
 
