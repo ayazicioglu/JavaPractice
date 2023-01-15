@@ -71,7 +71,7 @@ public class ATM_Methodlarla {
         }else System.out.println("Bakiye yetersiz");}
 
     public static void paraGonder(){
-       scan.nextLine();
+        scan.nextLine();
         System.out.println("Göndermek istediğiniz IBAN no giriniz:");
         iban=scan.nextLine().toUpperCase().replace("\\s","");
         if ((iban.startsWith("TR") && (iban.length()==26))){
@@ -82,7 +82,12 @@ public class ATM_Methodlarla {
                 System.out.println(iban+" nolu IBAN'a "+eft+" TL gönderdiniz, kalan bakiye "+bakiye);}
             else System.out.println("Bakiye yetersiz");
         }
-        else  System.out.println("Yanlış bir IBAN girdiniz");}
+        else{
+            System.out.println("Yanlış bir IBAN girdiniz");
+            paraGonder();
+        }
+    }
+
 
 
     public static void sifreDegistir(){
@@ -92,7 +97,7 @@ public class ATM_Methodlarla {
             System.out.println("Yeni şifrenizi giriniz: ");
             yenisifre=scan.nextInt();
             sifre=yenisifre;
-            scan.nextLine();
+            scan.nextLine();//dummy kukla iki scan objesi kullanma durumunda sorunu aşmak için kullanılır
             System.out.println("Şifreniz kaydedildi");
             girisKontrol();
         }
